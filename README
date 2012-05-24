@@ -1,0 +1,6 @@
+Road Roller is a GIS gem to manipulate road(MULTILINE) spatial data. 
+Spatial data for roads is usually distributed as shapefile with MULTILINEs. Converting continuous data (MULTILINE) to discrete (POINT) form will make it suitable for running Agent Based Simulations, especially in transportation and motion simulations.
+
+Road Roller does the following
+1) Convert roads into 'n' points separated by a distance 'd'
+2) Create a new lane 'l' for a given roads at a distance 'd
