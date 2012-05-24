@@ -1,5 +1,5 @@
-Road Roller is a GIS gem to manipulate road(LINESTRING) spatial data. 
-Spatial data for roads is usually distributed as shapefile with LINESTRINGs. Converting continuous data (LINESTRING) to discrete points (POINT) will make it suitable for running Agent Based Simulations, especially in transportation and motion simulations.
+Road Roller manipulates spatial data for Roads. 
+Spatial data for roads is usually distributed as shapefiles with LINESTRINGs. Converting continuous data (LINESTRING) to discrete points (POINT) will make it suitable for running Agent Based Simulations, especially in transportation and motion simulations.
 
 Road Roller does the following
 1) Convert roads into 'n' points separated by a distance 'd'
