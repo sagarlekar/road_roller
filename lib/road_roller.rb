@@ -1,5 +1,7 @@
 require 'rgeo'
 require 'rgeo/shapefile'
+require 'road_roller_helper'
+#require 'math'
 
 class RoadRoller
 
@@ -12,25 +14,31 @@ class RoadRoller
 		@filename
   end
 
-  def divide_roads_into_point(distance=1)
-    RGeo::Shapefile::Reader.open(@filename) do |shapefile|
+  def open_shapefile
+    @shapefile =  RGeo::Shapefile::Reader.open(@filename)
+  end
 
-  shapefile.each do |road|
+  def divide_roads_into_points(distance=1)
+    open_shapefile()
+
+  @shapefile.each do |road|
 
     road.geometry.each do |linestring|
       puts linestring.as_text
-      divide_road_into_point(linestring, distance)
+      divide_road_into_points(linestring, distance)
       end
-    end
     end
   end
 
-  def divide_road_into_point(road, distance)
-
+  def divide_road_into_points(road, distance)
       road.points.each do |pt|
         puts "   " + pt.as_text
       end
-
   end
 
+
+
+
+
 end
+
