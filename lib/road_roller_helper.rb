@@ -1,9 +1,11 @@
 require 'mathn'
+
+
 module RoadRollerHelper
 
 
-	def RoadRollerHelper.to_radians(angle)
-  		angle/180 * Math::PI
+  def RoadRollerHelper.to_radians(angle)
+      angle/180 * Math::PI
   end
 
 
@@ -23,5 +25,16 @@ module RoadRollerHelper
 
         bearing = to_degrees(Math.atan2(y, x));
         return bearing % 360;
+
+
    end
+
+  def RoadRollerHelper.get_line_length(lat1, lon1, lat2, lon2, distance)
+
+    length_sqr = (lat2-lat1)*(lat2-lat1) + (lon2-lon1)*(lon2-lon1)
+
+    length = Math.sqrt(length_sqr)
+
+  end
+
 end
