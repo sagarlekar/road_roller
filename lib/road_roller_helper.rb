@@ -1,4 +1,5 @@
 require 'mathn'
+require 'csv'
 
 
 module RoadRollerHelper
@@ -25,16 +26,36 @@ module RoadRollerHelper
 
         bearing = to_degrees(Math.atan2(y, x));
         return bearing % 360;
-
-
    end
 
-  def RoadRollerHelper.get_line_length(lat1, lon1, lat2, lon2, distance)
+
+
+   def RoadRollerHelper.degrees_to_meters(distance, lat)
+    meters = distance * 3.14 * 6378100 / 180 * Math.cos(to_radians(lat))
+   end
+
+ def RoadRollerHelper.meters_to_degrees(distance, lat)
+    degress = distance / 3.14 / 6378100 * 180 / Math.cos(to_radians(lat))
+
+  end
+
+  def RoadRollerHelper.get_line_length(lat1, lon1, lat2, lon2)
 
     length_sqr = (lat2-lat1)*(lat2-lat1) + (lon2-lon1)*(lon2-lon1)
 
     length = Math.sqrt(length_sqr)
 
-  end
+   end
 
-end
+
+  def RoadRollerHelper.export_csv(filename, points)
+
+    puts "filename " + filename
+    CSV.open(filename, "wb") do |csv|
+
+    points.each do |point|
+      csv << [point[0], point[1]]
+    end
+    end
+   end
+ end
