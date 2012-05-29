@@ -10,7 +10,7 @@ describe RoadRoller do
 
   before(:each) do
     @filename = "/home/sagar/Downloads/shapefiles/blr_roads.shp"
-    @road_roller = RoadRoller.new(@filename)
+    @road_roller = RoadRoller.new(@filename, 'id')
   end
 
   it "file should be open" do
@@ -20,8 +20,7 @@ describe RoadRoller do
 
 
   it "there should be more than 0 points" do
-    puts "&&&&&&&&&& #{@road_roller.divide_roads_into_points(1).length}"
-    @road_roller.divide_roads_into_points(1).length.should > 0
+    @road_roller.divide_roads_into_points(1).length.should == 471
   end
 
 

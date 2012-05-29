@@ -5,11 +5,12 @@ require 'road_roller_helper'
 
 class RoadRoller
 
-  attr_accessor :shapefile, :filename
+  attr_accessor :shapefile, :filename, :id_field
 
-	def initialize(filename)
+	def initialize(filename,id_field)
 		# absolute path to the shapefile e.g. /home/user/roads.shp
 		@filename = filename
+    @id_field = id_field
     open_shapefile()
 	end
 
@@ -19,22 +20,26 @@ class RoadRoller
 
   def divide_roads_into_points(distance)
 
+   #puts "Keyyyyy - #{@shapefile.attributes_available?(@id_field)}"
 
-   road_points = []
+
+   road_points = Hash.new()
 
    @shapefile.each do |linestrings|
+
+  if linestrings.attributes.keys().include?(@id_field) == false
+    raise "Attribute #{@id_field} is not present in the file. Kindly pass the name of the unique field in RoadRoller.new(filename, id_field)."
+  end
 
     linestrings.geometry.each do |linestring|
 
       linestring_points = divide_linestring_into_points(linestring, distance)
 
-      #puts "linestring_points length = #{linestring_points.length}"
-
-      road_points = road_points + linestring_points
+      road_points[linestrings.attributes[@id_field]] = linestring_points
       end
     end
 
-    #puts "road_points length = #{road_points.length}"
+    puts "road_points length = #{road_points.length}"
     return road_points
   end
 
