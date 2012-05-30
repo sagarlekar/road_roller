@@ -1,6 +1,3 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
 $:.unshift File.join(File.dirname(__FILE__),'..','lib')
 
 require 'road_roller_helper'
@@ -28,9 +25,15 @@ describe RoadRollerHelper do
 
   it "writes csv file" do
     filename = "/home/sagar/Downloads/shapefiles/blr_roads.shp"
+
     points = [[1,2],[4,2],[3,9]]
+    points_hash = Hash.new
+    points_hash["1"] =  [[1,2],[4,2],[3,9]]
+    points_hash["2"] =  [[1,2],[5,2],[3,9]]
+    points_hash["3"] =  [[1,2],[4,2]]
+
     dir = File.dirname(filename)
-    RoadRollerHelper::export_csv(dir+"/shapefile.csv", points)
+    RoadRollerHelper::export_csv(filename, points_hash)
   end
 end
 

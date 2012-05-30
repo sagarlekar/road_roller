@@ -1,7 +1,7 @@
 require 'rgeo'
 require 'rgeo/shapefile'
 require 'road_roller_helper'
-#require 'math'
+
 
 class RoadRoller
 
