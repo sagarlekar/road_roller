@@ -1,3 +1,6 @@
+# Author - Sagar Arlekar
+# Email - sagar.arlekar@gmail.com
+
 $:.unshift File.join(File.dirname(__FILE__),'..','lib')
 
 require 'road_roller_helper'
@@ -9,21 +12,19 @@ describe RoadRollerHelper do
   end
 
   it "length of line should be > 0" do
-    #puts "Length = " +  RoadRollerHelper::get_line_length(1,0,4,3,1).to_s
-    RoadRollerHelper::get_line_length(1,0,4,3).should > 0
+    RoadRollerHelper::get_line_length(1,0,4,3).should > 4
+    RoadRollerHelper::get_line_length(1,0,4,3).should > 4
   end
 
   it "converts degrees distance to meter" do
-    puts "#{RoadRollerHelper::degrees_to_meters(1,0)}"
     RoadRollerHelper::degrees_to_meters(1,0).should > 0
   end
 
   it "converts meter distance to degrees" do
-    puts "#{RoadRollerHelper::meters_to_degrees(112000,0)}"
     RoadRollerHelper::meters_to_degrees(112000,0).should > 0
   end
 
-  it "writes csv file" do
+  it "check whether csv file has all points written or not" do
     filename = "/home/sagar/Downloads/shapefiles/blr_roads.shp"
 
     points = [[1,2],[4,2],[3,9]]
@@ -34,6 +35,19 @@ describe RoadRollerHelper do
 
     dir = File.dirname(filename)
     RoadRollerHelper::export_csv(filename, points_hash)
+
+    line_count = 0
+
+    dir = File.dirname(filename)
+    filename = File.basename(filename, ".shp")
+    filename = dir + "/" + filename + ".csv"
+
+    File.open(filename, "r") do |infile|
+      while (line = infile.gets)
+         line_count = line_count + 1
+      end
+    end
+    line_count.should == 8
   end
 end
 

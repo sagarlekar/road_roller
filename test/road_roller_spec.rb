@@ -1,3 +1,6 @@
+# Author - Sagar Arlekar
+# Email - sagar.arlekar@gmail.com
+
 $:.unshift File.join(File.dirname(__FILE__),'..','lib')
 
 require 'road_roller'
