@@ -19,10 +19,6 @@ s.summary     = "A ruby gem to convert road(MULTILINE) spatial data into points(
 s.description = "Road Roller pre-processes spatial data for Roads Networks. This makes it suitable for use in Agent Based Simulations, especially in transportation and motion simulations.
 Spatial data for roads is usually distributed as shapefiles with LINESTRINGs. This gem will convert continuous data (LINESTRING) to discrete points (POINT)."
 
-Road Roller does the following
-1) Convert roads into 'n' points separated by a distance 'd'
-2) Create a new lane 'l' for a given roads at a distance 'd'"
-
 s.rubyforge_project         = "road_roller"
 
 s.add_dependency 'rgeo', '>=0.3.13'
