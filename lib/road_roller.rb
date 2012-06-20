@@ -106,8 +106,7 @@ class RoadRoller
     return lat_new, lon_new
   end
 
-  # Writes points in points_hash to a file as CSVs.
-
+  # Writes points in @road_points to a file as CSVs. If the input file was named /home/user/test_data.shp the csv file will be named /home/user/test_data.csv
   def export_as_csv()
 
     dir = File.dirname(@filename)
