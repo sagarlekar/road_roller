@@ -25,7 +25,7 @@ describe RoadRollerHelper do
   end
 
   it "check whether csv file has all points written or not" do
-    filename = "/home/sagar/Downloads/shapefiles/blr_roads.shp"
+    filename = "/home/sagar/Downloads/test_op.csv"
 
     points = [[1,2],[4,2],[3,9]]
     points_hash = Hash.new
@@ -33,14 +33,9 @@ describe RoadRollerHelper do
     points_hash["2"] =  [[1,2],[5,2],[3,9]]
     points_hash["3"] =  [[1,2],[4,2]]
 
-    dir = File.dirname(filename)
     RoadRollerHelper::export_csv(filename, points_hash)
 
     line_count = 0
-
-    dir = File.dirname(filename)
-    filename = File.basename(filename, ".shp")
-    filename = dir + "/" + filename + ".csv"
 
     File.open(filename, "r") do |infile|
       while (line = infile.gets)

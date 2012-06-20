@@ -65,11 +65,6 @@ module RoadRollerHelper
 
   def RoadRollerHelper.export_csv(filename, points_hash)
 
-    dir = File.dirname(filename)
-    filename = File.basename(filename, ".shp")
-    filename = dir + "/" + filename + ".csv"
-
-    puts "filename " + filename
     CSV.open(filename, "wb") do |csv|
 
     points_hash.each do |id, points|
