@@ -1,4 +1,7 @@
-Road Roller pre-processes spatial data for Roads Networks. This makes the data suitable for use in Agent Based Simulations, especially in transportation and motion simulations.
+Road Roller
+===
+
+Road Roller is a ruby gem to pre-process spatial data for Roads Networks. This makes the data suitable for use in Agent Based Simulations, especially in transportation and motion simulations.
 Spatial data for roads is usually distributed as shapefiles with LINESTRINGs. This gem will convert continuous data (LINESTRING) to discrete points (POINT).
 
 Road Roller does the following
