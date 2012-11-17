@@ -5,8 +5,8 @@ Road Roller is a ruby gem to pre-process spatial data for Roads Networks. This m
 Spatial data for roads is usually distributed as shapefiles with LINESTRINGs. This gem will convert continuous data (LINESTRING) to discrete points (POINT).
 
 Road Roller does the following
-1) Converts a road into 'n' points separated by a distance 'd'
-2) Creates a new lane 'l' for a given road at a distance 'd' (Yet to be implemented)
+* Converts a road into 'n' points separated by a distance 'd'
+* Creates a new lane 'l' for a given road at a distance 'd' (Yet to be implemented)
 
 
 
