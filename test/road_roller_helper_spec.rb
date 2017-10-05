@@ -25,7 +25,7 @@ describe RoadRollerHelper do
   end
 
   it "check whether csv file has all points written or not" do
-    filename = "/home/sagar/Downloads/test_op.csv"
+    filename = "test_op.csv"
 
     points = [[1,2],[4,2],[3,9]]
     points_hash = Hash.new
@@ -43,6 +43,7 @@ describe RoadRollerHelper do
       end
     end
     line_count.should == 8
+    File.delete(filename)
   end
 end
 

@@ -8,7 +8,7 @@ require 'road_roller'
 describe RoadRoller do
 
   before(:each) do
-    @filename = "/home/sagar/Downloads/shapefiles/blr_roads.shp"
+    @filename = "" #path to line (road, rivers) shapefile.
     @road_roller = RoadRoller.new(@filename, 'id')
   end
 
